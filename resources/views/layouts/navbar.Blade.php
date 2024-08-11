@@ -23,7 +23,7 @@
     <!-- Navbar Header -->
     <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
         <div class="container-fluid">
-            <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+            {{--    <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <button type="submit" class="btn btn-search pe-1">
@@ -34,10 +34,10 @@
                 </div>
                 <br>
 
-            </nav>
+            </nav> --}}
 
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-                <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                {{--    <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-expanded="false" aria-haspopup="true">
                         <i class="fa fa-search"></i>
@@ -52,7 +52,7 @@
                     </ul>
 
                 </li>
-
+ --}}
                 @if (session('message'))
                     <p class="mt-4 message-text22"> {{ session('message') }}</p>
                 @endif

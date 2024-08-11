@@ -16,9 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $data = Category::get();
 
 
-        return view('category.index');
+        return view('category.index', compact('data'));
     }
 
     /**
@@ -75,6 +76,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Category::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+        $user->delete(); // ลบผู้ใช้นั้น
+        return redirect('category')->with('message', "ลบหมวดหมู่สำเร็จ");
     }
 }
