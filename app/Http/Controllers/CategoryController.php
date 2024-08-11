@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class ManuController extends Controller
+class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+
+
+        return view('category.index');
     }
 
     /**
@@ -19,7 +26,7 @@ class ManuController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -27,7 +34,16 @@ class ManuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+
+        ]);
+
+        $data = new Category;
+        $data->name = $request->input('name');
+        $data->save();
+
+        return redirect('category')->with('message', "บันทึกสำเร็จ");
     }
 
     /**

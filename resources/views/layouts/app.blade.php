@@ -41,12 +41,12 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/css/plugins.min.css" />
     <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="assets/css/css.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="assets/css/demo.css" />
+
     <!-- Scripts -->
     {{--  @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
@@ -118,6 +118,7 @@
             <div class="main-panel">
 
                 @include('layouts.navbar')
+
                 @yield('content')
                 @include('layouts.footer')
             </div>

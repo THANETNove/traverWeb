@@ -36,8 +36,8 @@
                     </a>
 
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('/home') }}">
+                <li class="nav-item {{ Request::is('category*') ? 'active' : '' }}">
+                    <a href="{{ url('/category') }}">
                         <i class="fas fa-layer-group"></i>
                         <p>หมวดหมู่</p>
                     </a>
