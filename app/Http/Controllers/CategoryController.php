@@ -29,6 +29,13 @@ class CategoryController extends Controller
     {
         return view('category.create');
     }
+    public function search(Request $request)
+    {
+
+
+        $data = Category::where('name', 'LIKE', "%$request->search%")->get();
+        return view('category.index', compact('data'));
+    }
 
     /**
      * Store a newly created resource in storage.

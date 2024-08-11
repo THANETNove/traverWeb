@@ -17,9 +17,9 @@
                     <div class="table-responsive">
                         <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                             <div class="col-sm-12 col-md-12">
-                                <form class="d-flex" role="search" method="POST" action="{{ route('category-store') }}"
+                                <form class="d-flex" role="search" method="POST" action="{{ route('category-search') }}"
                                     enctype="multipart/form-data">
-                                    @csrf>
+                                    @csrf
                                     <input class="form-control me-2" type="search" name="search" placeholder="Search"
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
