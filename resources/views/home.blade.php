@@ -85,29 +85,14 @@
                                         role="grid" aria-describedby="add-row_info">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="add-row"
-                                                    rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="Name: activate to sort column descending"
-                                                    style="width: 219.836px;">Name</th>
-                                                <th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1"
-                                                    colspan="1" aria-label="Position: activate to sort column ascending"
-                                                    style="width: 322.445px;">Position</th>
-                                                <th class="sorting" tabindex="0" aria-controls="add-row" rowspan="1"
-                                                    colspan="1" aria-label="Office: activate to sort column ascending"
-                                                    style="width: 179.031px;">Office</th>
+                                                <th >Name</th>
+                                                <th >Position</th>
+                                                <th >Office</th>
                                                 <th style="width: 120.688px;" class="sorting" tabindex="0"
                                                     aria-controls="add-row" rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th rowspan="1" colspan="1">Name</th>
-                                                <th rowspan="1" colspan="1">Position</th>
-                                                <th rowspan="1" colspan="1">Office</th>
-                                                <th rowspan="1" colspan="1">Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
 
 
