@@ -26,17 +26,16 @@
                                     <div class="form-group">
                                         <label for="image">รูปภาพ <span class="-click"> * (เรียกตามตัวอันษร
                                                 น้อยไปมาก)</span></label>
-                                        <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                        <input type="file" class="form-control @error('image.*') is-invalid @enderror"
                                             id="image" onchange="previewImages(event)" name="image[]" multiple
-                                            accept="image/*">
-                                        @error('image')
+                                            accept="image/*" required>
+                                        @error('image.*')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-
-
                                     </div>
+
                                     <div class="form-group">
                                         <label for="image">ตัวย่างภาพ</label>
                                         <div id="imagePreview"></div>
@@ -45,7 +44,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email2">ประวัติสถานที่ท่องเที่ยว</label>
-                                        <textarea name="history_tourist" id="editor1" name="history_tourist " placeholder="Enter Description">
+                                        <textarea name="history_tourist" id="editor1" class="@error('history_tourist') is-invalid @enderror"
+                                            placeholder="Enter Description">
                                             {{ old('history_tourist') }}
                                         </textarea>
                                         @error('history_tourist')
@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <label for="email2">video</label>
                                         <input type="url" class="form-control  @error('video') is-invalid @enderror"
-                                            name="video" placeholder="หมวดหมู่" value="{{ old('video') }}">
+                                            name="video" placeholder="video" value="{{ old('video') }}">
                                         @error('video')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <label for="email2">GPS</label>
                                         <input type="url" class="form-control  @error('gps') is-invalid @enderror"
-                                            name="gps" placeholder="หมวดหมู่" value="{{ old('gps') }}">
+                                            name="gps" placeholder="gps" value="{{ old('gps') }}">
                                         @error('gps')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
