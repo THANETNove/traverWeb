@@ -4,20 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -36,5 +27,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return void
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        // Check if the user is an admin
+        if ($user->status !== 'admin') {
+            Auth::logout(); // Log out the user
+            return redirect('login')->withErrors(['error' => 'You are not authorized to access this application.']);
+        }
+
+        // Redirect to the intended page if user is an admin
+        return redirect()->intended($this->redirectPath());
     }
 }
