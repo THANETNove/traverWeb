@@ -15,3 +15,7 @@
 .cke_notification_warning {
     display: none !important;
 }
+
+.image-clickable {
+    cursor: pointer;
+}

@@ -40,106 +40,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $i = 1;
+                                            @endphp
+                                            @foreach ($data as $da)
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">{{ $i++ }}</td>
+                                                    <td>{{ $da->name }}</td>
+                                                    <td>
 
-
-
-
-
-
-
-
-
-
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>
-                                                    <div class="form-button-action">
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>
-                                                    <div class="form-button-action">
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>
-                                                    <div class="form-button-action">
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>
-                                                    <div class="form-button-action">
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>
-                                                    <div class="form-button-action">
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button type="button" data-bs-toggle="tooltip" title=""
-                                                            class="btn btn-link btn-danger" data-original-title="Remove">
-                                                            <i class="fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                        @if ($da->image)
+                                                            @foreach (json_decode($da->image) as $imageUrl)
+                                                                <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
+                                                                    style="width: 50px; height: auto;"
+                                                                    class="image-clickable">
+                                                            @endforeach
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-button-action">
+                                                            <button type="button" data-bs-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-primary btn-lg"
+                                                                data-original-title="Edit Task">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                            <button type="button" data-bs-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-danger"
+                                                                data-original-title="Remove">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -160,12 +93,11 @@
                                             <li class="paginate_button page-item active"><a href="#"
                                                     aria-controls="add-row" data-dt-idx="1" tabindex="0"
                                                     class="page-link">1</a></li>
-                                            <li class="paginate_button page-item "><a href="#"
-                                                    aria-controls="add-row" data-dt-idx="2" tabindex="0"
-                                                    class="page-link">2</a></li>
-                                            <li class="paginate_button page-item next" id="add-row_next"><a
-                                                    href="#" aria-controls="add-row" data-dt-idx="3"
-                                                    tabindex="0" class="page-link">Next</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="add-row"
+                                                    data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                            <li class="paginate_button page-item next" id="add-row_next"><a href="#"
+                                                    aria-controls="add-row" data-dt-idx="3" tabindex="0"
+                                                    class="page-link">Next</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -176,4 +108,31 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="" class="modal-image img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // เลือกภาพที่มีคลาส image-clickable และเพิ่ม event listener
+            document.querySelectorAll('.image-clickable').forEach(function(img) {
+                img.addEventListener('click', function() {
+                    var imageUrl = this.getAttribute('src');
+                    var modalImage = document.querySelector('.modal-image');
+
+                    // ตั้งค่า src ของภาพใน modal
+                    modalImage.setAttribute('src', imageUrl);
+
+                    // เรียกใช้ Modal ด้วย ID ของ Modal
+                    $('#imageModal').modal('show');
+                });
+            });
+        });
+    </script>
 @endsection

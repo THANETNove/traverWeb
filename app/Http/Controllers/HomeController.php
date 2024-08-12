@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data = Trave::get();
 
-
-        return view('home');
+        return view('home', compact('data'));
     }
 
     public function create()
