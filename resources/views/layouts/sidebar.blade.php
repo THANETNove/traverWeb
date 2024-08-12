@@ -33,7 +33,7 @@
                 <li class="nav-item {{ Request::is('home*') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">
                         <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
+                        <p>สถานที่ท่องเที่ยว</p>
                     </a>
 
                 </li>

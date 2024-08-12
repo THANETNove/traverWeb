@@ -9,7 +9,7 @@
                         <h4 class="card-title">หมวดหมู่</h4>
                         <a href="{{ url('category-create') }}" class="btn btn-primary btn-round ms-auto">
                             <i class="fa fa-plus"></i>
-                            Add Row</a>
+                            เพิ่ม หมวดหมู่</a>
 
                     </div>
                 </div>

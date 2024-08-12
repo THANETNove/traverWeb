@@ -11,3 +11,7 @@
     /*    max-width: 600px !important;
     max-height: 600px !important; */
 }
+
+.cke_notification_warning {
+    display: none !important;
+}

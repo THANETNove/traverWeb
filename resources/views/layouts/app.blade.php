@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="assets/css/plugins.min.css" />
     <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
     <link rel="stylesheet" href="assets/css/css.css" />
-
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
     <!-- Scripts -->
     {{--  @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
