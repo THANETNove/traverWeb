@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>TRAVER</title>
+    <title> {{ config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -16,7 +16,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/img/Logo.png" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -111,17 +111,24 @@
         </nav> --}}
         <div class="wrapper">
             <!-- Sidebar -->
+            @guest
 
-            @include('layouts.sidebar')
-            <!-- End Sidebar -->
+                @include('layouts.navbarLogin')
+                <div style="margin-top: 104px">
+                    @yield('content')
+                </div>
+            @else
+                @include('layouts.sidebar')
+                <!-- End Sidebar -->
 
-            <div class="main-panel">
+                <div class="main-panel">
 
-                @include('layouts.navbar')
+                    @include('layouts.navbar')
 
-                @yield('content')
-                @include('layouts.footer')
-            </div>
+                    @yield('content')
+                    @include('layouts.footer')
+                </div>
+            @endguest
         </div>
     </div>
 

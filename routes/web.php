@@ -6,7 +6,14 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        // ถ้าผู้ใช้ล็อกอิน ให้ตรวจสอบว่า `name` มีอยู่หรือไม่
+        if (Auth::user()->name) {
+            return redirect('home');
+        }
+    } else {
+        return view('welcome');
+    }
 });
 
 Auth::routes();

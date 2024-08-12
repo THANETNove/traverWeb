@@ -2,3 +2,12 @@
     margin-right: 32px;
     color: green !important;
 }
+
+.welcome-logo2 {
+    margin-top: -32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*    max-width: 600px !important;
+    max-height: 600px !important; */
+}
