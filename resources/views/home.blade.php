@@ -65,11 +65,12 @@
                                                                 data-original-title="Edit Task">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <button type="button" data-bs-toggle="tooltip" title=""
-                                                                class="btn btn-link btn-danger"
-                                                                data-original-title="Remove">
+                                                            <a href="{{ url('trave-destroy', $da->id) }}" type="button"
+                                                                data-bs-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-danger" data-original-title="Remove"
+                                                                onclick="return confirm('Are you sure you want to delete this TRAVE?');">
                                                                 <i class="fa fa-times"></i>
-                                                            </button>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>

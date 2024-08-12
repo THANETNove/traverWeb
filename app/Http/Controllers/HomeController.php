@@ -140,4 +140,27 @@ class HomeController extends Controller
 
         return redirect('home')->with('message', "เเก้ไขสำเร็จ");
     }
+
+    public function destroy($id)
+    {
+        $data = Trave::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+        // ลบภาพ
+
+        if ($data->image) {
+            $desImage = json_decode($data->image);
+            foreach ($desImage as $imagePath) {
+                // Assuming images are stored in public directory
+                $imagePath = public_path($imagePath); // Adjust if stored differently
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Delete the file from the server
+                }
+            }
+        }
+
+
+        $data->delete(); // ลบ Product
+
+        return redirect('home')->with('message', "ลบข้อมูลสำเร็จ");
+    }
 }
