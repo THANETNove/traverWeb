@@ -24,6 +24,9 @@ class User extends Authenticatable
         'address',
         'district',
         'province',
+        'status',
+        'subdistrict',
+        'zipCode',
         'phone'
     ];
 
