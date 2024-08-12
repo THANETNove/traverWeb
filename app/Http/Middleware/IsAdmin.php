@@ -17,7 +17,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::check() && Auth::user()->status == "admin") {
+        if (Auth::check() && Auth::user()->status == "1") {
             return $next($request);
         }
         return redirect('/');

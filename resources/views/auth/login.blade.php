@@ -25,12 +25,13 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    @if ($errors->any())
+
+                                    @if ($errors->has('errorLogin'))
                                         <div class="alert alert-danger">
                                             <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
+
+                                                <li>{{ $errors->first('errorLogin') }}</li>
+
                                             </ul>
                                         </div>
                                     @endif

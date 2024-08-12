@@ -39,9 +39,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         // Check if the user is an admin
-        if ($user->status !== 'admin') {
+        if ($user->status !== '1') {
             Auth::logout(); // Log out the user
-            return redirect('login')->withErrors(['error' => 'You are not authorized to access this application.']);
+            return redirect('login')->withErrors(['errorLogin' => 'You are not authorized to access this application.']);
         }
 
         // Redirect to the intended page if user is an admin
