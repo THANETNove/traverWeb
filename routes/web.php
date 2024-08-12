@@ -24,6 +24,7 @@ Route::post('/trave-store', [HomeController::class, 'store'])->name('trave-store
 Route::get('/trave-edit/{id}', [HomeController::class, 'edit'])->name('trave-edit');
 Route::put('/trave-update/{id}', [HomeController::class, 'update'])->name('trave-update');
 Route::get('/trave-destroy/{id}', [HomeController::class, 'destroy'])->name('trave-destroy');
+Route::post('/trave-search', [HomeController::class, 'search'])->name('trave-search');
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
 Route::get('/category-create', [CategoryController::class, 'create'])->name('category-create');
 Route::post('/category-store', [CategoryController::class, 'store'])->name('category-store');

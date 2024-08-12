@@ -33,9 +33,20 @@ class HomeController extends Controller
 
     public function create()
     {
-        $data = Category::get();
+        $data = Category::paginate(500);
         return view('trave.create', compact('data'));
     }
+
+    public function search(Request $request)
+    {
+
+        $data = Trave::where('name', 'LIKE', "%$request->search%")->orderBy('id', 'DESC')
+            ->paginate(1000);
+
+        return view('home', compact('data'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([
