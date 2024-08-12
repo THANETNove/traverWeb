@@ -3,7 +3,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="{{ url('/home') }}" class="logo">
-                <img src="assets/img/logo_light.png" alt="navbar brand" class="navbar-brand" height="20" />
+                <img src="assets/img/Logo.png" alt="navbar brand" class="navbar-brand" height="30" />
+                <span style="color: #ffff;margin-left:16px;"> {{ config('app.name') }}</span>
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
