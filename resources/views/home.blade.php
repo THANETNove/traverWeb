@@ -81,11 +81,12 @@
                                 <div class="col-sm-12 col-md-5">
                                     <div class="dataTables_info" id="add-row_info" role="status" aria-live="polite">
                                         Showing
-                                        1 to 5 of 10 entries</div>
+                                        {{ $data->firstItem() }} to {{ $data->lastItem() }} of {{ $data->total() }} entries
+                                    </div>
                                 </div>
                                 <div class="col-sm-12 col-md-7">
                                     <div class="dataTables_paginate paging_simple_numbers" id="add-row_paginate">
-                                        <ul class="pagination">
+                                        {{--        <ul class="pagination">
                                             <li class="paginate_button page-item previous disabled" id="add-row_previous">
                                                 <a href="#" aria-controls="add-row" data-dt-idx="0" tabindex="0"
                                                     class="page-link">Previous</a>
@@ -98,7 +99,10 @@
                                             <li class="paginate_button page-item next" id="add-row_next"><a href="#"
                                                     aria-controls="add-row" data-dt-idx="3" tabindex="0"
                                                     class="page-link">Next</a></li>
-                                        </ul>
+                                        </ul> --}}
+
+                                        {!! $data->links() !!}
+
                                     </div>
                                 </div>
                             </div>

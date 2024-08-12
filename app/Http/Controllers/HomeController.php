@@ -25,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Trave::get();
+        $data = Trave::orderBy('id', 'DESC')
+            ->paginate(500);
 
         return view('home', compact('data'));
     }
@@ -40,15 +41,14 @@ class HomeController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             // 'image.*' => ['required', 'file', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
-            'history_tourist' => ['required', 'string', 'max:255'],
-            'video' => ['required', 'url', 'max:255'], // ตรวจสอบว่า 'video' เป็น URL
-            'gps' => ['required', 'url', 'max:255'],
+            'history_tourist' => ['required'],
+            'video' => ['required', 'url'], // ตรวจสอบว่า 'video' เป็น URL
+            'gps' => ['required', 'url'],
             'opening_closing_time' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
 
         ]);
 
-        dd("aa");
         $data = new Trave;
         if ($request->hasFile('image')) {
             $images = $request->file('image');
