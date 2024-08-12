@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     if (Auth::check()) {
         // ถ้าผู้ใช้ล็อกอิน ให้ตรวจสอบว่า `name` มีอยู่หรือไม่
-        if (Auth::user()->name) {
+        if (Auth::user()->name && Auth::user()->status == "1") {
             return redirect('home');
         }
     } else {
