@@ -31,9 +31,9 @@
                                         role="grid" aria-describedby="add-row_info">
                                         <thead>
                                             <tr role="row">
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
+                                                <th>#</th>
+                                                <th>ชื่อ</th>
+                                                <th>รูปภาพ</th>
                                                 <th style="width: 120.688px;" class="sorting" tabindex="0"
                                                     aria-controls="add-row" rowspan="1" colspan="1"
                                                     aria-label="Action: activate to sort column ascending">Action</th>
