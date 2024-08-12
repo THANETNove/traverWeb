@@ -98,16 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img src="" class="modal-image img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // เลือกภาพที่มีคลาส image-clickable และเพิ่ม event listener

@@ -87,4 +87,54 @@ class HomeController extends Controller
         $dataTrave  =  Trave::find($id);
         return view('trave.edit', compact('data', 'dataTrave'));
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $data =  Trave::find($id);
+
+
+
+        if ($request->hasFile('image')) {
+            $desImage = json_decode($data->image);
+            foreach ($desImage as $imagePath) {
+                // Assuming images are stored in public directory
+                $imagePath = public_path($imagePath); // Adjust if stored differently
+
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Delete the file from the server
+                }
+            }
+
+            // Upload new images        
+            $images = $request->file('image');
+
+
+
+            foreach ($images as $image) {
+                // Generate unique filename
+                $imageName = time() . '_' . $image->getClientOriginalName();
+
+                // Move the image to the specified directory
+                $image->move(public_path('assets/images/trave'), $imageName);
+
+                // Store or use $imageName as needed
+                $imagePaths[] = 'assets/images/trave/' . $imageName; // Store paths to use or save in database
+            }
+            $data->image = json_encode($imagePaths);
+            // $imagePaths now contains paths to all uploaded images 1721051708_Acer H6518STi.pdf
+
+        }
+
+        $data->name = $request['name'];
+        $data->history_tourist = $request['history_tourist'];
+        $data->video = $request['video'];
+        $data->gps = $request['gps'];
+        $data->video = $request['video'];
+        $data->opening_closing_time = $request['opening_closing_time'];
+        $data->category = $request['category'];
+        $data->save();
+
+        return redirect('home')->with('message', "เเก้ไขสำเร็จ");
+    }
 }
