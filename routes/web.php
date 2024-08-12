@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/trave-create', [HomeController::class, 'create'])->name('trave-create');
 Route::post('/trave-store', [HomeController::class, 'store'])->name('trave-store');
+Route::get('/trave-edit/{id}', [HomeController::class, 'edit'])->name('trave-edit');
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
 Route::get('/category-create', [CategoryController::class, 'create'])->name('category-create');
 Route::post('/category-store', [CategoryController::class, 'store'])->name('category-store');

@@ -78,4 +78,13 @@ class HomeController extends Controller
 
         return redirect('home')->with('message', "บันทึกสำเร็จ");
     }
+
+    public function edit($id)
+    {
+
+
+        $data = Category::get();
+        $dataTrave  =  Trave::find($id);
+        return view('trave.edit', compact('data', 'dataTrave'));
+    }
 }

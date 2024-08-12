@@ -30,7 +30,7 @@
                     </span>
                     <h4 class="text-section">Components</h4>
                 </li>
-                <li class="nav-item {{ Request::is('home*') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::is('home*') || Request::is('trave*') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">
                         <i class="fas fa-home"></i>
                         <p>สถานที่ท่องเที่ยว</p>
