@@ -6,20 +6,22 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/', function () {
-    if (Auth::check()) {
+    /*   if (Auth::check()) {
         // ถ้าผู้ใช้ล็อกอิน ให้ตรวจสอบว่า `name` มีอยู่หรือไม่
         if (Auth::user()->name && Auth::user()->status == "1") {
             return redirect('home');
         }
     } else {
         return view('welcome');
-    }
+    } */
+
+    return view('welcome');
 });
 
 Auth::routes();
 
 
-/* Route::group(['middleware' => ['is_admin']], function () { */
+
 Route::middleware(['isAdmin'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/trave-create', [HomeController::class, 'create'])->name('trave-create');
