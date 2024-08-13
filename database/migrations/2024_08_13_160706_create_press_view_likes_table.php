@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('id_travel')->nullable();
             $table->string('id_user_view')->nullable();
-            $table->integer('view')->default(0);
+            $table->integer('view')->nullable()->default(0);
             $table->string('id_user_like')->nullable();
-            $table->integer('like')->default(0);
+            $table->integer('like')->nullable()->default(0);
             $table->timestamps();
         });
     }
