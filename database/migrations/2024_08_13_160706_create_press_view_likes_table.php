@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('press_view_likes', function (Blueprint $table) {
             $table->id();
             $table->string('id_travel')->unique();
-            $table->string('id_user')->unique();
+            $table->string('id_user_view')->unique();
             $table->string('view')->unique();
+            $table->string('id_user_like')->unique();
             $table->string('like')->unique();
             $table->timestamps();
         });
