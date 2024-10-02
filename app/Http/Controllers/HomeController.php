@@ -27,8 +27,8 @@ class HomeController extends Controller
     {
         $data = Trave::orderBy('id', 'DESC')
             ->paginate(500);
-
-        return view('home', compact('data'));
+            $datacategory = Category::get();
+        return view('home', compact('data','datacategory'));
     }
 
     public function create()
@@ -42,8 +42,8 @@ class HomeController extends Controller
 
         $data = Trave::where('name', 'LIKE', "%$request->search%")->orderBy('id', 'DESC')
             ->paginate(1000);
-
-        return view('home', compact('data'));
+            $datacategory = Category::get();
+        return view('home', compact('data','datacategory'));
     }
 
 

@@ -33,8 +33,9 @@
                                         role="grid" aria-describedby="add-row_info">
                                         <thead>
                                             <tr role="row">
-                                                <th>#</th>
+                                                <th>No.</th>
                                                 <th>ชื่อ</th>
+                                                <th>หมวดหมู่</th>
                                                 <th>รูปภาพ</th>
                                                 <th style="width: 120.688px;" class="sorting" tabindex="0"
                                                     aria-controls="add-row" rowspan="1" colspan="1"
@@ -49,6 +50,13 @@
                                                 <tr role="row" class="odd">
                                                     <td class="sorting_1">{{ $i++ }}</td>
                                                     <td>{{ $da->name }}</td>
+                                                    @foreach ($datacategory as $item)
+
+                                                    @if ($item->id == $da->category)
+                                                    <td>{{ $item->name }}</td>
+                                                    @endif
+                                                        
+                                                    @endforeach
                                                     <td>
 
                                                         @if ($da->image)
