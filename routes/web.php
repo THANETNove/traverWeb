@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
 
-       // if (Auth::check()) {
-       // ชถ้าผู้ใช้ล็อกอิน ให้ตรวจสอบว่า `name` มีอยู่หรือไม่
+    // if (Auth::check()) {
+    // ชถ้าผู้ใช้ล็อกอิน ให้ตรวจสอบว่า `name` มีอยู่หรือไม่
     /* if (Auth::user()->name && Auth::user()->status == "1") {
             return redirect('home');
         }
@@ -17,6 +17,19 @@ Route::get('/', function () {
     } */
 
     return view('welcome');
+});
+Route::get('/download-file-apk', function () {
+
+    // ระบุเส้นทางของไฟล์ APK
+    $filePath = public_path('appApk/application-a58c1887-0079-4e0d-9c43-3c3c1aa87da9.apk'); // แทนที่ `your-file-name.apk` ด้วยชื่อไฟล์ APK ที่ต้องการ
+
+    // ตรวจสอบว่ามีไฟล์อยู่หรือไม่
+    if (file_exists($filePath)) {
+        // ส่งไฟล์ให้ดาวน์โหลด
+        return response()->download($filePath);
+    } else {
+        return abort(404, 'File not found.');
+    }
 });
 
 Auth::routes();

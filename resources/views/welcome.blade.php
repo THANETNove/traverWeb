@@ -68,7 +68,7 @@
             </font>
         </div>
         <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="#">
+            <a class="btn btn-xl btn-outline-light" href="{{ url('download-file-apk') }}">
                 <!--ใส่ลิงค์ไฟล์งานที่เป็น apk.หรือ ไฟล์งานที่อัพโหลดขึ้นที่เว็บไฟล์ฝากงาน เช่น Google drive, Onedrive-->
                 <i class="fa-solid fa-cloud-arrow-down"></i>
                 Download File Apk. now
