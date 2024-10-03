@@ -19,18 +19,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/download-file-apk', function () {
-
     // ระบุเส้นทางของไฟล์ APK
     $filePath = public_path('appApk/application-a58c1887-0079-4e0d-9c43-3c3c1aa87da9.apk'); // แทนที่ `your-file-name.apk` ด้วยชื่อไฟล์ APK ที่ต้องการ
 
     // ตรวจสอบว่ามีไฟล์อยู่หรือไม่
     if (file_exists($filePath)) {
-        // ส่งไฟล์ให้ดาวน์โหลด
-        return response()->download($filePath);
+        // ส่งไฟล์ให้ดาวน์โหลดพร้อมกำหนด Content-Type และ Headers ที่เหมาะสม
+        return response()->download($filePath, 'application.apk', [
+            'Content-Type' => 'application/vnd.android.package-archive',
+            'Content-Disposition' => 'attachment; filename="application.apk"',
+            'Cache-Control' => 'no-cache, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => '0'
+        ]);
     } else {
         return abort(404, 'File not found.');
     }
 });
+
 
 Auth::routes();
 
